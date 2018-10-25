@@ -1,0 +1,15 @@
+<use name="FWCore/Framework"/>
+<use name="FWCore/PluginManager"/>
+<use name="FWCore/ParameterSet"/>
+<use name="DataFormats/TrackReco"/>
+<use   name="Geometry/CaloGeometry"/>
+<use name="CommonTools/UtilAlgos"/>
+<use name="Geometry/CaloTopology"/>
+<use name="CondFormats/EgammaObjects"/>
+<use   name="MyRecHitTree/DeadCryAnalysis"/>
+<use name="clhep"/>
+<use name="root"/>
+<use name="roottmva"/>
+<library   file="*.cc" name="MyRecHitTreeDeadCrysAnalysisPlugins">
+  <flags EDM_PLUGIN="1"/>
+</library>
