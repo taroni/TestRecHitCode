@@ -287,6 +287,7 @@ DeadCrysAnalysis::analyze(const edm::Event& iEvent, const  edm::EventSetup & iSe
       //std::cout << " Central RecHit iEta " << idCurrent.ieta() << std::endl;
 
       EcalRecHitCollection::const_iterator it = recHitsEB.find( idCurrent );
+      if (it==recHitsEB.end()) continue;
       localDeadFlag=0;
       if( it->checkFlag(EcalRecHit::kDead) ) localDeadFlag=1;
       if (debug_) std::cout << __PRETTY_FUNCTION__ <<  " " << __LINE__ << " " << it->energy() << " " << it->checkFlag(EcalRecHit::kDead) << " " << localDeadFlag << std::endl;
@@ -305,6 +306,7 @@ DeadCrysAnalysis::analyze(const edm::Event& iEvent, const  edm::EventSetup & iSe
       for ( size_t i = 0; i < v_id.size(); ++i ) {
 	float cryE= recHitEnergy( v_id[i], &recHitsEB );
 	EcalRecHitCollection::const_iterator jt = (&recHitsEB)->find( v_id[i] );
+	if (jt==recHitsEB.end()) continue;
         E_3x3 += cryE;
 
 	if ( cryE <= 0.0 && idCurrent!=v_id[i] ) continue;
